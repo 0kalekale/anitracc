@@ -26,5 +26,16 @@ def search(medium, sQ):
         rt = mangaS(sQ)
     return rt
 
+@app.route('/search', methods=['GET', 'POST'])
+def searchPAGE():
+    return render_template("search.html")
+
+@app.route('/result', methods=['GET', 'POST'])
+def result():
+    _opt = request.form.get("mat")
+    _sq = request.form.get("sq")
+    rd = r'/search/' + _opt + r'/' + _sq
+    return redirect(rd)
 if __name__ == "__main__":
     app.run()
+
