@@ -5,6 +5,8 @@ from flask import Flask, session, redirect, url_for, request, render_template
 #LOCAL IMPORTS
 from search import animeS,mangaS
 from page import animeP,mangaP
+from user import display_userpage
+
 app = Flask(__name__, template_folder='templates')
 
 @app.route('/', methods=['GET', 'POST'])
@@ -36,6 +38,11 @@ def result():
     _sq = request.form.get("sq")
     rd = r'/search/' + _opt + r'/' + _sq
     return redirect(rd)
+
+@app.route('/user/<username>/')
+def userpage(username):
+    # rt = 'user: ' + username
+    return display_userpage(username)
 if __name__ == "__main__":
     app.run()
 
