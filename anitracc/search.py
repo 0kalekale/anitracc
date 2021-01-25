@@ -4,7 +4,6 @@ from flask import render_template
 
 def animeS(sQ):
     Sobj = anilistpy.animeSearch(sQ)
-    
     url, title, desc, img = [], [], [], []
     try: 
         for i in range(0, 5):

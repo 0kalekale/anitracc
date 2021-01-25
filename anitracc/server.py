@@ -6,7 +6,7 @@ from flask import Flask, session, redirect, url_for, request, render_template
 from search import animeS,mangaS
 from page import animeP,mangaP
 from user import display_userpage
-
+from mutation import update_progress
 app = Flask(__name__, template_folder='templates')
 
 @app.route('/', methods=['GET', 'POST'])
@@ -39,10 +39,19 @@ def result():
     rd = r'/search/' + _opt + r'/' + _sq
     return redirect(rd)
 
-@app.route('/user/<username>/')
-def userpage(username):
-    # rt = 'user: ' + username
-    return display_userpage(username)
+@app.route('/mutation/progress', methods=['GET', 'POST'])
+def mutation():
+    media = request.args.get('media', default = '', type = str)
+    id = request.args.get('id', default = '', type = int)
+    progress = request.form.get("progress")
+    token = request.form.get("password")
+    
+    return update_progress(id, token, progress, media)
+@app.route('/login')
+def login():
+    return redirect('https://anilist.co/api/v2/oauth/authorize?client_id=4768&response_type=token')
+
+
 if __name__ == "__main__":
     app.run()
 

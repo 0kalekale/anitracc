@@ -1,0 +1,27 @@
+<link rel="icon" href="https://avatars3.githubusercontent.com/u/75199724" sizes="16x16">
+<title>{{title}}</title>
+
+<h1>{{title}}</h1>
+
+<h3>Description: </h3><p>{{description}}</p><br>
+<b>Episodes: {{eps}}</b><form method="post" action="/mutation/progress?id={{id}}&media={{media}}">
+your progress: 
+    <input type=progress name=progress>
+     
+          <a href="/login">auth key: </a>
+    <input type=password name=password>
+      <input type=submit value=Update>
+</form>
+<form method="post" action="/mutation/status">
+    status:
+    <select id="status" name="status">
+         <option value="PLANNING">Planning</option>
+        <option value="WATCHING">Watching</option>
+        <option value="COMPLETED">Completed</option>
+        <option value="DROPPED">Dropped</option>
+      </select>
+          <a href="/login">auth key: </a>
+    <input type=password name=password>
+      <input type=submit value=Update>
+</form>
+<img src="{{img}}"></img><br><br>
