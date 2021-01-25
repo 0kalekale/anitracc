@@ -39,6 +39,11 @@ def result():
     rd = r'/search/' + _opt + r'/' + _sq
     return redirect(rd)
 
+@app.route('/user/<username>/')
+def userpage(username):
+    # rt = 'user: ' + username
+    return display_userpage(username)
+
 @app.route('/mutation/progress', methods=['GET', 'POST'])
 def mutation():
     media = request.args.get('media', default = '', type = str)
