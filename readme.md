@@ -1,15 +1,28 @@
 # Anitracc
 
-## install and run
+anilist.co frontend in flask. why? the website is too bloated, i need something that just werks.
+
+## install 
+
 ```
-make setup
-make run
+make install
+```
+
+## run the server
+
+```
+make setup  # only needed for the first time and after `make clean`
+make run    # run the server
 ```
 
 ## clean up
+
 ```
-make clean
+make clean  # deletes everything from the previous instance
 ```
-A simple anime tracking website written in flask based on anilist.co .
+
+it works by saving your api token in instance/config.json, go to '/login' to authenticate
+
+(note: this is only intended to run on localhost)
 
 work in progress.

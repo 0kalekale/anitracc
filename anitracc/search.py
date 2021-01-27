@@ -12,7 +12,7 @@ def animeS(sQ):
             url.append(id)
             title.append(_anime.title("romaji"))
             desc.append(_anime.description())
-            img.append(_anime.coverImage('medium')) 
+            img.append(_anime.coverImage('large')) 
     except IndexError:
         pass
     
@@ -29,7 +29,7 @@ def mangaS(sQ):
             url.append(id)
             title.append(_anime.title("romaji"))
             desc.append(_anime.description())
-            img.append(_anime.coverImage('medium')) 
+            img.append(_anime.coverImage('large')) 
     except IndexError:
         pass
     

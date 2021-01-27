@@ -1,16 +1,62 @@
 <title>aniflask</title>
 <link rel="icon" href="https://avatars3.githubusercontent.com/u/75199724" sizes="16x16">
+<link rel="icon" href="https://avatars3.githubusercontent.com/u/75199724" sizes="16x16">
+<title>anitracc</title>
 
-<h1>Search results for {{sq}}</h1>
+<p style="text-align:left;float:left;font-size:25px">Anitracc</p>
+
+<a href="/login"><p style="text-align:right;float:right;font-size:20px;">login</p></a>
+<form method="post" action="/result" style="text-align:center;float:center;font-size:20px;">
+    <input type=text name=sq>
+    <select id="mat" name="mat">
+        <option value="anime">Anime</option>
+        <option value="manga">Manga</option>
+      </select>
+      <input type=submit value=Search>
+</form>
+
+<hr style="clear:both;"/>
+
+<style>
+input[type=text] {
+  width: 60%;
+  padding: 10px 20px;
+  margin: 7px 0;
+  border: 3px solid #555;
+  box-sizing: border-box;
+  background-color: white;
+  font-size: 18px;
+}
+select {
+  width: 10%;
+  padding: 10px 20px;
+  border: 3px solid #555;
+
+  border-radius: 3px;
+  background-color: white;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: skyblue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<p style="font-size:25px">Search results for {{sq}}</p>
 <table border="1">
-    <tr>
-        <th width="20%">title</th>
-        <th>description</th>
-    </tr>
+
 {%for i in range(0, 5)%} 
     <tr>
-        <td><a href="{{url[i]}}">{{title[i]}}</a><br><img src="{{img[i]}}"></td>
-        <td>{{desc[i]}}</td>
+        <td><a href="{{url[i]}}"><img src="{{img[i]}}" ></a></td>
+        <td><p style="font-size:35px">{{title[i]}}:</p> <br> <p style="font-size:25px" >{{desc[i]}}</p></td>
     </tr>
 {%endfor%} 
 </table>
