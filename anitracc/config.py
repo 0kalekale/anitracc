@@ -1,9 +1,10 @@
 from os import path
 import json
+from flask import redirect
 def checkconfig():
     configpath = 'instance/config.json'  
     if path.exists(configpath):
-        #print("all set")
+        print("all set")
         return True
     else:
         print("no instance found, run `make setup`")
@@ -15,9 +16,8 @@ def writetoken(token):
         json = '{\"token\": \"' + token +'\"}'
         config.write(json)
         config.close
-    else: 
-        quit()
-
+        
+    return redirect('/')
 def readtoken():
     config = open('instance/config.json', 'r')
     tkn = json.loads(config.read())['token']    
